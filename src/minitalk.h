@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:41:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 07:32:00 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/12 07:43:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <stdlib.h>
-
+# include <stdio.h> // TODO: remove later
+# include <signal.h>
 #endif
