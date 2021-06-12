@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:41:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 08:17:54 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/12 14:01:12 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 typedef struct	s_buffer {
 	int			strlen;
+	char		strlen_buff[33];
 	char		*str;
+	int			i;
 }				t_buffer;
 #endif

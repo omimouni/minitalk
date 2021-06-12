@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:34:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 09:11:04 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/12 11:54:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,21 @@ int	main(int argc, char **argv)
 
 	pid = atoi(argv[1]);
 	str = argv[2];
-	
-	// if (argv[2][0] == '1')
-	// 	kill(pid, SIGUSR1);
-	// if (argv[2][0] == '2')
-	// 	kill(pid, SIGUSR2);
+
+	// SEND STRING SIZE
+	int	strl;
+	int	i;
+
+	strl = ft_strlen(str);
+	i = 31;
+	while (i >= 0)
+	{
+		if ((strl&(1<<i)))
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		i--;
+		usleep(100);
+	}
 	return (0);
 }
