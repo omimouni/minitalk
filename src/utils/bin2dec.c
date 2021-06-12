@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   bin2dec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 07:32:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 14:17:27 by omimouni         ###   ########.fr       */
+/*   Created: 2021/06/12 14:14:24 by omimouni          #+#    #+#             */
+/*   Updated: 2021/06/12 14:19:27 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "utils.h"
 
-t_buffer	*g_buff;
-
-int	main(int argc, char **argv)
+unsigned int	bin2dec(char *bin)
 {
-	int	num;
+	unsigned int	num;
 
-	g_buff = malloc(sizeof(t_buffer));
-	g_buff->i = 0;
-	printf("%d\n", getpid());
-	while (1)
+	while (*(bin) != 0)
 	{
-		if (g_buff->i == 32)
+		if (*bin == '0')
+			num <<= 1;
+		else if (*bin == '1')
 		{
-			g_buff->strlen_buff[32] = '\0';
-			printf("String size : %d \n", bin2dec(g_buff->strlen_buff));
-			g_buff->i = 0;
+			num <<= 1;
+			num += 1;
 		}
-		signal(SIGUSR1, signal_handler);
-		signal(SIGUSR2, signal_handler);
-		pause();
+		else
+			break ;
+		bin++;
 	}
-	return (0);
+	return (num);
 }

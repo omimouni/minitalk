@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 07:32:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 14:17:27 by omimouni         ###   ########.fr       */
+/*   Created: 2021/06/12 14:14:54 by omimouni          #+#    #+#             */
+/*   Updated: 2021/06/12 14:18:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-t_buffer	*g_buff;
+extern t_buffer	*g_buff;
 
-int	main(int argc, char **argv)
+void	signal_handler(int signum)
 {
-	int	num;
-
-	g_buff = malloc(sizeof(t_buffer));
-	g_buff->i = 0;
-	printf("%d\n", getpid());
-	while (1)
-	{
-		if (g_buff->i == 32)
-		{
-			g_buff->strlen_buff[32] = '\0';
-			printf("String size : %d \n", bin2dec(g_buff->strlen_buff));
-			g_buff->i = 0;
-		}
-		signal(SIGUSR1, signal_handler);
-		signal(SIGUSR2, signal_handler);
-		pause();
-	}
-	return (0);
+	if (signum == SIGUSR1)
+		g_buff->strlen_buff[g_buff->i] = '1';
+	else if (signum == SIGUSR2)
+		g_buff->strlen_buff[g_buff->i] = '0';
+	g_buff->i += 1;
 }
