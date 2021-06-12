@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 14:41:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 08:17:54 by omimouni         ###   ########.fr       */
+/*   Created: 2021/06/12 08:17:21 by omimouni          #+#    #+#             */
+/*   Updated: 2021/06/12 09:10:00 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "util.h"
 
-# include "utils/utils.h"
+int	ft_strlen(char *str)
+{
+	int	i;
 
-# include <unistd.h>
-# include <sys/types.h>
-# include <stdlib.h>
-# include <stdio.h> // TODO: remove later
-# include <signal.h>
-
-typedef struct	s_buffer {
-	int			strlen;
-	char		*str;
-}				t_buffer;
-#endif
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
