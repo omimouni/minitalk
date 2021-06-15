@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:41:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 14:25:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:17:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ typedef struct s_buffer
 {
 	int			strlen;
 	char		strlen_buff[33];
+	char		char_buff[8];
 	char		*str;
 	int			i;
+	short int	flag_strlen;
 }	t_buffer;
 
 void	signal_handler(int signum);

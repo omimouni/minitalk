@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:34:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/15 11:06:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/15 18:49:41 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ static	void mt_send_string(int pid, char *str)
 		i = 7;
 		while (i >= 0)
 		{
-			printf("%c", (*str & (1 << i)) ? '1' : '0');
-			i--;
+			if ((*str & (1 << i)))
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
 			usleep(100);
+			i--;
 		}
-		usleep(100);
 		str++;
 	}
 }
@@ -48,8 +50,6 @@ static	void mt_send_string(int pid, char *str)
 int	main(int argc, char **argv)
 {
 	int	pid;
-	int	strl;
-	int	i;
 
 	if (argc != 3)
 	{

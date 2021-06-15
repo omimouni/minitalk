@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 07:28:18 by omimouni          #+#    #+#              #
-#    Updated: 2021/06/12 14:20:59 by omimouni         ###   ########.fr        #
+#    Updated: 2021/06/15 11:51:10 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,14 @@ UTILS = 		src/utils/ft_strlen.c\
 				src/utils/bin2dec.c
 
 $(NAME): $(CLIENT_SRCS) $(SERVER_SRCS)
-	gcc $(CLIENT_SRCS) $(UTILS) -o $(NAME)
-	gcc $(SERVER_SRCS) $(UTILS) -o $(SERVER)
+	@gcc $(CLIENT_SRCS) $(UTILS) -o $(NAME)
+	@gcc $(SERVER_SRCS) $(UTILS) -o $(SERVER)
 
 all: $(NAME)
 
 clean:
-	rm -rf client.out
-	rm -rf server.out
+	@rm -rf client.out
+	@rm -rf server.out
 
 fclean: clean
 
