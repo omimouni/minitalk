@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:34:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/15 10:53:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:06:39 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,23 @@ static void	mt_send_strlen(int pid, int	strlen)
 	}
 }
 
+static	void mt_send_string(int pid, char *str)
+{
+	int	i;
+	while (*str)
+	{
+		i = 7;
+		while (i >= 0)
+		{
+			printf("%c", (*str & (1 << i)) ? '1' : '0');
+			i--;
+			usleep(100);
+		}
+		usleep(100);
+		str++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	int	pid;
@@ -41,5 +58,6 @@ int	main(int argc, char **argv)
 	}
 	pid = atoi(argv[1]);
 	mt_send_strlen(pid, ft_strlen(argv[2]));
+	mt_send_string(pid, argv[2]);
 	return (0);
 }
