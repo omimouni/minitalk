@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 14:14:54 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/15 19:01:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:04:36 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	handle_strlen(int signum)
 
 static void handle_string(int signum)
 {
+	char	ch;
 
 	if (signum == SIGUSR1)
 		g_buff->char_buff[g_buff->i] = '1';
@@ -36,7 +37,9 @@ static void handle_string(int signum)
 		g_buff->i += 1;
 	else
 	{
-		write(1, "Hello\n", 6);
+		ch = (char)bin2dec(g_buff->char_buff);
+		g_buff->str[g_buff->strptr] = ch;
+		g_buff->strptr += 1;
 		g_buff->i = 0;
 	}
 }

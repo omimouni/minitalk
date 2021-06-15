@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 07:32:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/15 13:26:12 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:07:15 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	mt_get_strlen()
 
 static void mt_get_string()
 {
-	
+	if (g_buff->strlen == g_buff->strptr && g_buff->flag_strlen)
+		printf("%s\n", g_buff->str);
 }
 
 int	main(int argc, char **argv)
@@ -39,10 +40,12 @@ int	main(int argc, char **argv)
 	g_buff = malloc(sizeof(t_buffer));
 	g_buff->i = 0;
 	g_buff->flag_strlen = 0;
+	g_buff->strptr = 0;
 	printf("%d\n", getpid());
 	while (1)
 	{
 		mt_get_strlen();
+		mt_get_string();
 		signal(SIGUSR1, signal_handler);
 		signal(SIGUSR2, signal_handler);
 		pause();
