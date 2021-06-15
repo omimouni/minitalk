@@ -6,11 +6,27 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:34:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 14:17:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/15 10:53:38 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+static void	mt_send_strlen(int pid, int	strlen)
+{
+	int	i;
+
+	i = 31;
+	while (i >= 0)
+	{
+		if ((strlen & (1 << i)))
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		i--;
+		usleep(100);
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -24,16 +40,6 @@ int	main(int argc, char **argv)
 		exit(-1);
 	}
 	pid = atoi(argv[1]);
-	strl = ft_strlen(argv[2]);
-	i = 31;
-	while (i >= 0)
-	{
-		if ((strl & (1 << i)))
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		i--;
-		usleep(100);
-	}
+	mt_send_strlen(pid, ft_strlen(argv[2]));
 	return (0);
 }

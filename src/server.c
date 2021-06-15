@@ -6,13 +6,25 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 07:32:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/12 14:29:20 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/15 10:48:53 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
 t_buffer	*g_buff;
+
+static void	mt_get_strlen()
+{
+	if (g_buff->i == 32)
+	{
+		g_buff->strlen_buff[32] = '\0';
+		g_buff->strlen = bin2dec(g_buff->strlen_buff);
+		g_buff->str = malloc(sizeof(char) * (g_buff->strlen + 1));
+		printf("size %d \n", g_buff->strlen); // DEBUGGING
+		g_buff->i++;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -23,12 +35,7 @@ int	main(int argc, char **argv)
 	printf("%d\n", getpid());
 	while (1)
 	{
-		if (g_buff->i == 32)
-		{
-			g_buff->strlen_buff[32] = '\0';
-			printf("String size : %d \n", bin2dec(g_buff->strlen_buff));
-			g_buff->i++;
-		}
+		mt_get_strlen();
 		signal(SIGUSR1, signal_handler);
 		signal(SIGUSR2, signal_handler);
 		pause();
