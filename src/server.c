@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 07:41:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 09:04:03 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 10:22:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static void	signal_handler(int signum)
 
 int	main(void)
 {
-	int		pid;
+	char	*pid;
 	char	c;
 
 	g_buff = malloc(sizeof(t_buffer));
 	g_buff->count = 0;
-	pid = getpid();
-	printf("%d\n", pid); // PROBLEMS
+	pid = ft_itoa(getpid());
+	write(1, pid, ft_strlen(pid));
 	while (1)
 	{
 		signal(SIGUSR1, signal_handler);
