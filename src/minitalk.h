@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:41:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 08:34:29 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 08:54:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdio.h> // TODO: remove later
 # include <signal.h>
 
-typedef struct	s_buffer {
+typedef struct s_buffer {
 	char	ch[8];
 	int		count;
 }	t_buffer;

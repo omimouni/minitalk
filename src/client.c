@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 07:40:53 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 08:49:34 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 08:53:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ int	main(int argc, char **argv)
 			else
 				kill(pid, SIGUSR2);
 			i--;
-			usleep(60);
+			usleep(100);
 		}
 		str++;
 	}
-
 	return (0);
 }
