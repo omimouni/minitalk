@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 07:41:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 07:55:15 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 08:05:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 static void	signal_handler(int signum)
 {
-	printf("%d\n", signum);
+	if (signum == SIGUSR1)
+		write(1, "1", 1);
+	else if (signum == SIGUSR2)
+		write(1, "0", 1);
 }
 
 int	main(void)
