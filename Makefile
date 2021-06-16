@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 07:28:18 by omimouni          #+#    #+#              #
-#    Updated: 2021/06/16 10:22:41 by omimouni         ###   ########.fr        #
+#    Updated: 2021/06/16 10:30:29 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CLIENT_SRCS = 	src/client.c
 
 SERVER_SRCS = 	src/server.c
 
-FLAGS = -Wall
+FLAGS = -Wall -Wextra -Werror
 
 UTILS = 		src/utils/ft_strlen.c\
 				src/utils/bin2dec.c\
