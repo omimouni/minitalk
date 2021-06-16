@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 07:41:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 09:00:19 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 09:04:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void	signal_handler(int signum)
 	{
 		g_buff->count = 0;
 		i = 7;
-		while (i > 0)
-			g_buff->ch[i++] = 0;
+		while (i >= 0)
+			g_buff->ch[i--] = 0;
 	}
 	if (signum == SIGUSR1)
 		g_buff->ch[g_buff->count] = '1';
@@ -40,7 +40,7 @@ int	main(void)
 	g_buff = malloc(sizeof(t_buffer));
 	g_buff->count = 0;
 	pid = getpid();
-	printf("%d\n", pid);
+	printf("%d\n", pid); // PROBLEMS
 	while (1)
 	{
 		signal(SIGUSR1, signal_handler);

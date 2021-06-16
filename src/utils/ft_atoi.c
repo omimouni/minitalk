@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 08:46:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 09:00:09 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 09:01:27 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "utils.h"
 
 static int	check(int n)
 {

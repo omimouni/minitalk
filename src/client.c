@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 07:40:53 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 08:53:54 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 09:04:31 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	char	*str;
 	int		i;
 
-	pid = atoi(argv[1]);
+	pid = ft_atoi(argv[1]);
 	str = argv[2];
 	while (*str)
 	{
