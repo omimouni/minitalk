@@ -1,2 +1,3 @@
 - sending signals
-- Conver from server
+- Convert from server
+- clean up
