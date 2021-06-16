@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 08:46:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/16 08:46:17 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/06/16 09:00:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ static int	check(int n)
 	return (0);
 }
 
-int			ft_atoi(const char *str)
+static int	flret(int flag)
+{
+	if (flag > 0)
+		return (-1);
+	return (0);
+}
+
+int	ft_atoi(const char *str)
 {
 	int		n;
 	char	*s;
@@ -28,7 +35,7 @@ int			ft_atoi(const char *str)
 	flag = 1;
 	s = (char *)str;
 	while (*s == ' ' || *s == '\n' || *s == '\r' || *s == '\t'
-			|| *s == '\v' || *s == '\f')
+		|| *s == '\v' || *s == '\f')
 		s++;
 	if (*s == '-' || *s == '+')
 	{
@@ -40,7 +47,7 @@ int			ft_atoi(const char *str)
 	while (*s >= '0' && *s <= '9' && *s != '\0')
 	{
 		if (check(n))
-			return ((flag > 0 ? -1 : 0));
+			return (flret(flag));
 		n = (n * 10) + (*s - '0');
 		s++;
 	}
