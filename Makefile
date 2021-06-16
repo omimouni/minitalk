@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 07:28:18 by omimouni          #+#    #+#              #
-#    Updated: 2021/06/15 11:51:10 by omimouni         ###   ########.fr        #
+#    Updated: 2021/06/16 07:45:44 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ SERVER = server.out
 
 CLIENT_SRCS = 	src/client.c
 
-SERVER_SRCS = 	src/server.c\
-				src/signal.c
+SERVER_SRCS = 	src/server.c
 
 UTILS = 		src/utils/ft_strlen.c\
 				src/utils/bin2dec.c

@@ -5,47 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 07:32:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/06/15 19:07:15 by omimouni         ###   ########.fr       */
+/*   Created: 2021/06/16 07:41:41 by omimouni          #+#    #+#             */
+/*   Updated: 2021/06/16 07:55:15 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-t_buffer	*g_buff;
-
-static void	mt_get_strlen()
+static void	signal_handler(int signum)
 {
-	if (g_buff->i == 32 && !g_buff->flag_strlen)
-	{
-		g_buff->strlen_buff[32] = '\0';
-		g_buff->strlen = bin2dec(g_buff->strlen_buff);
-		g_buff->str = malloc(sizeof(char) * (g_buff->strlen + 1));
-		g_buff->str[g_buff->strlen] = '\0';
-		g_buff->i = 0;
-		g_buff->flag_strlen = 1;
-	}
+	printf("%d\n", signum);
 }
 
-static void mt_get_string()
+int	main(void)
 {
-	if (g_buff->strlen == g_buff->strptr && g_buff->flag_strlen)
-		printf("%s\n", g_buff->str);
-}
+	int	pid;
 
-int	main(int argc, char **argv)
-{
-	int	num;
-
-	g_buff = malloc(sizeof(t_buffer));
-	g_buff->i = 0;
-	g_buff->flag_strlen = 0;
-	g_buff->strptr = 0;
-	printf("%d\n", getpid());
+	pid = getpid();
+	printf("%d\n", pid); // TODO: Use legal functions
 	while (1)
 	{
-		mt_get_strlen();
-		mt_get_string();
 		signal(SIGUSR1, signal_handler);
 		signal(SIGUSR2, signal_handler);
 		pause();
